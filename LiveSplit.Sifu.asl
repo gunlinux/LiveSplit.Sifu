@@ -5,7 +5,7 @@ state("Sifu-Win64-Shipping")
 
 state("Sifu-Win64-Shipping", "Steam16022025")
 {
-	int loading: 0x05A5AEC8, 0x120;  // optional by versions
+	int loading: 0x05A5AEC8, 0x120;  // steam version
 }
 
 
@@ -15,16 +15,25 @@ startup
 	settings.SetToolTip("split_on_home", "Check if you want autosplit on hideout sections");
 }
 
+state("Sifu-Win64-Shipping", "EGS16022025")
+{
+	int loading: 0x05C7F018, 0x120;  // egs version
+}
+
 
 init
 {
 	print(modules.First().ModuleMemorySize.ToString());
-    switch (modules.First().ModuleMemorySize)
+    	switch (modules.First().ModuleMemorySize)
  	{
    		case 103370752:
    			version = "Steam16022025";
    			print("Steam16022025");
    			break;
+		case 105754624:
+			version = "EGS16022025";
+			print("EGS16022025");
+			break;
  	}
 	// buffer to store is we count home visit
 	vars.count_home = 0;
