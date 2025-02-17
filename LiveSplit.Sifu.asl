@@ -8,16 +8,15 @@ state("Sifu-Win64-Shipping", "Steam16022025")
 	int loading: 0x05A5AEC8, 0x120;  // steam version
 }
 
+state("Sifu-Win64-Shipping", "EGS16022025")
+{
+	int loading: 0x05C7F018, 0x120;  // egs version
+}
 
 startup
 {
 	settings.Add("split_on_home", false, "split_on_home");
 	settings.SetToolTip("split_on_home", "Check if you want autosplit on hideout sections");
-}
-
-state("Sifu-Win64-Shipping", "EGS16022025")
-{
-	int loading: 0x05C7F018, 0x120;  // egs version
 }
 
 
@@ -63,4 +62,3 @@ isLoading // Load remover
     }
     return false;
 }
-
